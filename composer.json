@@ -1,0 +1,8 @@
+{
+    "name": "icbs/teste_tintan_software",
+    "autoload": {
+        "psr-4": {
+            "App\\":"app/"
+        }
+    }
+}
