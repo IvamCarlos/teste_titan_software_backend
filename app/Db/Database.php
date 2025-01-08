@@ -30,7 +30,7 @@ class Database {
      * Senha de acesso do banco de dados
      * @var string
      */
-    CONST PASS = '1138051471';
+    CONST PASS = 'DIGITE_SUA_SENHA_DO_MYSQL_AQUI';
 
     /**
      * Nome da tabela a ser manipulada
