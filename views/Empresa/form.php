@@ -1,26 +1,25 @@
 <main>
     <section>
         <a href="index.php">
-            <button class="btn btn-success">Voltar</button>
+            <button class="btn-voltar">Voltar</button>
         </a>
     </section>
 
     <h2 class="mt-3"><?= TITLE ?></h2>
 
-    <form method="post" onsubmit="return validar()">
+    <div>
+        <form method="post" onsubmit="return validar()">
 
-        <div class="form-group">
             <label for="title">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" value="<?= ($empresa->getNome()) ? $empresa->getNome() : '' ?>">
+            <input type="text" name="nome" id="nome" value="<?= ($empresa->getNome()) ? $empresa->getNome() : '' ?>">
             <span role="alert" id="nomeErro" aria-hidden="true">
                 Por favor insira o nome da empresa
             </span>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">Cadastrar</button>
-        </div>
 
-    </form>
+            <input type="submit" value="Cadastrar">
+
+        </form>
+    </div>
 </main>
 
 <script>

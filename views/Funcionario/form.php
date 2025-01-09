@@ -1,44 +1,40 @@
 <main>
     <section>
         <a href="index.php">
-            <button class="btn btn-success">Voltar</button>
+            <button class="btn-voltar">Voltar</button>
         </a>
     </section>
 
     <h2 class="mt-3"><?= TITLE ?></h2>
 
-    <form method="post" onsubmit="return validar()">
+    <div>
+        <form method="post" onsubmit="return validar()">
 
-        <div class="form-group">
             <label for="title">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" value="<?= ($funcionario->getNome()) ? $funcionario->getNome() : '' ?>">
+            <input type="text" name="nome" id="nome" value="<?= ($funcionario->getNome()) ? $funcionario->getNome() : '' ?>">
             <span role="alert" id="nomeErro" aria-hidden="true">
                 Por favor insira seu nome
             </span>
-        </div>
-        <div class="form-group">
+
             <label for="isbn">CPF</label>
-            <input type="text" class="form-control" name="cpf" id="cpf" value="<?= ($funcionario->getCpf()) ? $funcionario->getCpf() : '' ?>">
+            <input type="text" name="cpf" id="cpf" value="<?= ($funcionario->getCpf()) ? $funcionario->getCpf() : '' ?>">
             <span role="alert" id="cpfErro" aria-hidden="true">
                 Por favor insira seu CPF
             </span>
-        </div>
-        <div class="form-group">
+
             <label for="amount">RG</label>
-            <input type="text" class="form-control" name="rg" value="<?= ($funcionario->getRg()) ? $funcionario->getRg() : '' ?>">
-        </div>
-        <div class="form-group">
+            <input type="text" name="rg" value="<?= ($funcionario->getRg()) ? $funcionario->getRg() : '' ?>">
+
             <label for="amount">Email</label>
-            <input type="text" class="form-control" name="email" id="email" value="<?= ($funcionario->getEmail()) ? $funcionario->getEmail() : '' ?>">
+            <input type="text" name="email" id="email" value="<?= ($funcionario->getEmail()) ? $funcionario->getEmail() : '' ?>">
             <span role="alert" id="emailErro" aria-hidden="true">
                 Por favor insira seu e-mail
             </span>
-        </div>
-        <div class="form-group">
+
             <label for="amount">Empresa</label>
-            <select name="id_empresa" id="empresa" class="form-control">
+            <select name="id_empresa" id="empresa">
                 <?php 
-                
+                    
                     use \App\Entity\Empresa;
 
                     $empresas = Empresa::collection();
@@ -52,15 +48,15 @@
 
                 ?>
             </select>
-        </div>
-        <span role="alert" id="empresaErro" aria-hidden="true">
-            Por favor selecione uma empresa
-        </span>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">Cadastrar</button>
-        </div>
+            <span role="alert" id="empresaErro" aria-hidden="true">
+                Por favor selecione uma empresa
+            </span>
 
-    </form>
+            <input type="submit" value="Cadastrar">
+
+        </form>
+    <div>
+
 </main>
 
 <script>

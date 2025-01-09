@@ -4,10 +4,10 @@
     if(isset($_GET['status'])) {
         switch ($_GET['status']) {
             case 'success':
-                $mensagem = '<div class="alert alert-success">Ação executada com sucesso!</div>';
+                $mensagem = '<div class="alert-success">Ação executada com sucesso!</div>';
                 break;
             case 'error' : 
-                $mensagem = '<div class="alert alert-danger">Ação não executada</div>';
+                $mensagem = '<div class="alert-danger">Ação não executada</div>';
         }
     }
 
@@ -39,13 +39,13 @@
 
     <section>
         <a href="register.php">
-            <button class="btn btn-success">Novo Funcionário</button>
+            <button class="button">Novo Funcionário</button>
         </a>
     </section>
 </main>
 
 <section>
-    <table class="table bg-light mt-3">
+    <table class="table">
         <thead>
             <tr>
                 <th>Nome</th>
