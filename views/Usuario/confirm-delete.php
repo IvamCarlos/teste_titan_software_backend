@@ -1,20 +1,16 @@
 <main>
 
-  <h2 class="mt-3">Excluir Usuário</h2>
+  <h2>Excluir Usuário</h2>
 
-  <form method="post">
+  <form method="post" action="<?php echo base_url ?>usuario-deletar/<?= $usuario->getIdUsuario() ?>">
 
-    <div class="form-group">
-      <p>Você deseja realmente excluir o usuário <strong><?= $user->getLogin() ?></strong>?</p>
-    </div>
+    <p>Você deseja realmente excluir o usuário <strong><?= $usuario->getLogin() ?></strong>?</p>
 
-    <div class="form-group">
-      <a href="index.php">
-        <button type="button" class="btn btn-success">Cancelar</button>
-      </a>
+    <a href="<?php echo base_url ?>usuarios">
+      <button class="button" type="button">Cancelar</button>
+    </a>
 
-      <button type="submit" name="delete" class="btn btn-danger">Excluir</button>
-    </div>
+    <button class="button-danger" type="submit" name="delete">Excluir</button>
 
   </form>
 

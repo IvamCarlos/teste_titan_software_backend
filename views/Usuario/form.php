@@ -1,21 +1,22 @@
 <main>
     <section>
-        <a href="index.php">
-            <button class="btn btn-success">Voltar</button>
+        <a href="<?php echo base_url; ?>usuarios">
+            <button class="btn-voltar">Voltar</button>
         </a>
     </section>
 
-    <h2 class="mt-3"><?= TITLE ?></h2>
+    <div>
+        <h2>Cadastrar novo usuário</h2>
 
-    <form method="post">
-
-        <div class="form-group">
+        <form method="post" action="<?php echo base_url; ?>usuario-registrar">
             <label for="title">Usuário</label>
-            <input type="text" class="form-control" name="usuario" value="<?= ($user->getLogin()) ? $user->getLogin() : '' ?>">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">Cadastrar</button>
-        </div>
+            <input type="text" name="login">
 
-    </form>
+            <label for="title">Senha</label>
+            <input type="password" name="senha">
+            
+            <input type="submit" value="Cadastrar">
+
+        </form>
+    </div>
 </main>

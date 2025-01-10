@@ -25,7 +25,7 @@ CREATE TABLE tbl_empresa (
 CREATE TABLE tbl_funcionario (
 	id_funcionario INT AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
+    cpf VARCHAR(20) NOT NULL,
     rg VARCHAR(20),
     email VARCHAR(30) NOT NULL,
     id_empresa INT NOT NULL,

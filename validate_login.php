@@ -3,7 +3,7 @@
     require_once __DIR__.'/vendor/autoload.php';
 
     use App\Db\Database;
-    use App\Entity\Usuario;
+    use App\Models\Usuario;
 
     $user = $_POST['login'];
     $password = $_POST['senha'];

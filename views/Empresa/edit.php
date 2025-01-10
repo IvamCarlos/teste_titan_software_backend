@@ -1,38 +1,23 @@
-<?php 
+<main>
+    <section>
+        <a href="<?php echo base_url; ?>empresas">
+            <button class="btn-voltar">Voltar</button>
+        </a>
+    </section>
 
-require_once __DIR__.'../../../vendor/autoload.php';
+    <div>
+        <h2>Editar Empresa</h2>
 
-define('TITLE', 'Editar Empresa');
-session_start();
+        <form method="post" onsubmit="return validarEmpresa()" action="<?php echo base_url; ?>empresa-atualizar/<?= $empresa->getIdEmpresa() ?>">
 
-use \App\Entity\Empresa;
+            <label for="title">Nome</label>
+            <input type="text" name="nome" id="nome" value="<?= ($empresa->getNome()) ? $empresa->getNome() : '' ?>">
+            <span role="alert" id="nomeErro" aria-hidden="true">
+                Por favor insira o nome da empresa
+            </span>
 
-// Validação do ID
-if(!isset($_GET['id']) or !is_numeric($_GET['id'])) {
-    header('location: index.php?status=error');
-    exit;
-}
+            <input type="submit" value="Cadastrar">
 
-// Consulta a empresa
-$empresa = Empresa::single($_GET['id']);
-
-// Validação da empresa
-if(!$empresa instanceof Empresa){
-   header('location: index.php?status=error');
-   exit; 
-}
-    
-// Atualização da empresa
-if(isset($_POST['nome'])) {
-    $empresa = new empresa;
-    $empresa->setNome($_POST['name']);
-    $empresa->update();
-
-    header('location: index.php?status=success');
-    exit;
-}
-
-require_once __DIR__.'../../../config/config.php';
-include __DIR__.'../../../includes/header.php';
-include __DIR__.'/form.php';
-include __DIR__.'../../../includes/footer.php';
+        </form>
+    </div>
+</main>

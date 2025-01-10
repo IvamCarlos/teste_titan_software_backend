@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Entity;
+namespace App\Models;
 
 use \App\Db\Database;
 use \PDO;
@@ -71,7 +71,7 @@ class Usuario {
      * @return string
      */
     public function getSenha() {
-        return $this->login;
+        return $this->senha;
     }
 
     /**
@@ -97,7 +97,7 @@ class Usuario {
     public function update(){
         return (new Database('tbl_usuario'))->update('id_usuario = '.$this->getIdUsuario(),[
             'login'         => $this->getLogin(),
-            'senha'      => $this->getSenha()
+            'senha'         => $this->getSenha()
         ]);
     }
 

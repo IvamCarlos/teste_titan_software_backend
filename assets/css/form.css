@@ -1,4 +1,5 @@
-input[type=text], select {
+/* Melhora a visualização dos inputs que serão exibidos no formulário */
+input[type=text], input[type=password], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -8,6 +9,7 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
+/* Altera a visualização do botão */
 input[type=submit] {
     width: 100%;
     background-color: #04AA6D;
@@ -19,10 +21,12 @@ input[type=submit] {
     cursor: pointer;
 }
 
+/* Adiciona uma ação que muda ao cursor do mouse aproximar do botão */
 input[type=submit]:hover {
     background-color: #57be89;
 }
 
+/* Altera a estilização do botão voltar */
 .btn-voltar {
     background-color: #04AA6D;
     color: white;
@@ -33,6 +37,7 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
+/* Div que vai englobar o form */
 div {
     border-radius: 5px;
     background-color: #f2f2f2;

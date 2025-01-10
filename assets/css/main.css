@@ -1,5 +1,6 @@
 body {margin:0;}
 
+/* Definindo o background do menu */
 .navbar {
   overflow: hidden;
   background-color: #333;
@@ -7,6 +8,7 @@ body {margin:0;}
   width: 100%;
 }
 
+/* Definição dos items do menu */
 .navbar a {
   float: left;
   display: block;
@@ -17,19 +19,29 @@ body {margin:0;}
   font-size: 17px;
 }
 
+/* Define o botão sair a direita do menu */
+.navbar a.logout{
+  float: right;
+  margin-right: 30px;
+}
+
+/* Ação que troca a cor item do menu ao aproximar o mouse */
 .navbar a:hover {
   background: #ddd;
   color: black;
 }
 
+/* Container para alinhar o conteúdo */
 .container {
-  padding: 0 30vw;
+  padding: 0 10vw;
 }
 
+/* Define o .main a 10 pixels abaixo do menu*/
 .main {
   margin-top: 10px;
 }
 
+/* Muda a estilização do botão convencional */
 .button {
   margin-top: 10px;
   background-color: #04AA6D;
@@ -41,3 +53,17 @@ body {margin:0;}
   display: inline-block;
   font-size: 16px;
 }
+
+/* Estilização do botão de exclusão */
+.button-danger {
+  margin-top: 10px;
+  background-color: #ed0d0d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+

@@ -1,32 +1,31 @@
 <main>
     <section>
-        <a href="index.php">
+        <a href="<?php echo base_url; ?>">
             <button class="btn-voltar">Voltar</button>
         </a>
     </section>
 
-    <h2 class="mt-3"><?= TITLE ?></h2>
-
     <div>
-        <form method="post" onsubmit="return validar()">
+        <h2>Cadastrar novo funcionário</h2>
+        <form method="post" onsubmit="return validarFuncionario()" action="<?php echo base_url; ?>funcionario-registrar">
 
             <label for="title">Nome</label>
-            <input type="text" name="nome" id="nome" value="<?= ($funcionario->getNome()) ? $funcionario->getNome() : '' ?>">
+            <input type="text" name="nome" id="nome">
             <span role="alert" id="nomeErro" aria-hidden="true">
                 Por favor insira seu nome
             </span>
 
             <label for="isbn">CPF</label>
-            <input type="text" name="cpf" id="cpf" value="<?= ($funcionario->getCpf()) ? $funcionario->getCpf() : '' ?>">
+            <input type="text" name="cpf" id="cpf" size="12" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)">
             <span role="alert" id="cpfErro" aria-hidden="true">
                 Por favor insira seu CPF
             </span>
 
             <label for="amount">RG</label>
-            <input type="text" name="rg" value="<?= ($funcionario->getRg()) ? $funcionario->getRg() : '' ?>">
+            <input type="text" name="rg" size="12" maxlength="14" OnKeyPress="formatar('##.###.###-##', this)">
 
             <label for="amount">Email</label>
-            <input type="text" name="email" id="email" value="<?= ($funcionario->getEmail()) ? $funcionario->getEmail() : '' ?>">
+            <input type="text" name="email" id="email">
             <span role="alert" id="emailErro" aria-hidden="true">
                 Por favor insira seu e-mail
             </span>
@@ -35,7 +34,7 @@
             <select name="id_empresa" id="empresa">
                 <?php 
                     
-                    use \App\Entity\Empresa;
+                    use \App\Models\Empresa;
 
                     $empresas = Empresa::collection();
 
@@ -58,54 +57,3 @@
     <div>
 
 </main>
-
-<script>
-
-    function validar() {
-
-        const nome = document.getElementById("nome");
-        const cpf = document.getElementById("cpf");
-        const email = document.getElementById("email");
-        const empresa = document.getElementById("empresa");
-        let valid = true;
-
-        if (!nome.value) {
-            const nomeErro = document.getElementById("nomeErro");
-            nomeErro.classList.add("visible");
-            nome.classList.add("invalid");
-            nomeErro.setAttribute("aria-hidden", false);
-            nomeErro.setAttribute("aria-invalid", true);
-            valid = false;
-        }
-
-        if (!cpf.value) {
-            const cpfErro = document.getElementById("cpfErro");
-            cpfErro.classList.add("visible");
-            cpf.classList.add("invalid");
-            cpfErro.setAttribute("aria-hidden", false);
-            cpfErro.setAttribute("aria-invalid", true);
-            valid = false;
-        }
-
-        if (!email.value) {
-            const emailError = document.getElementById("emailErro");
-            emailErro.classList.add("visible");
-            email.classList.add("invalid");
-            emailErro.setAttribute("aria-hidden", false);
-            emailErro.setAttribute("aria-invalid", true);
-            valid = false;
-        }
-
-        if (!empresa.value) {
-            const empresaError = document.getElementById("empresaErro");
-            empresaErro.classList.add("visible");
-            empresa.classList.add("invalid");
-            empresaErro.setAttribute("aria-hidden", false);
-            empresaErro.setAttribute("aria-invalid", true);
-            valid = false;
-        }
-            
-        return valid;
-    }
-
-</script>

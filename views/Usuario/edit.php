@@ -1,39 +1,22 @@
-<?php 
+<main>
+    <section>
+        <a href="<?php echo base_url; ?>usuarios">
+            <button class="btn-voltar">Voltar</button>
+        </a>
+    </section>
 
-require_once __DIR__.'../../../vendor/autoload.php';
+    <div>
+        <h2>Editar Usuário</h2>
 
-define('TITLE', 'Editar Usuário');
+        <form method="post" action="<?php echo base_url; ?>usuario-atualizar/<?= $usuario->getIdUsuario() ?>">
+            <label for="title">Usuário</label>
+            <input type="text" name="login" value="<?= ($usuario->getLogin()) ? $usuario->getLogin() : '' ?>">
 
-session_start();
+            <label for="title">Senha</label>
+            <input type="password" name="senha" value="<?= ($usuario->getSenha()) ? $usuario->getSenha() : '' ?>">
+            
+            <input type="submit" value="Cadastrar">
 
-use \App\Entity\Usuario;
-
-// Validação do ID
-if(!isset($_GET['id']) or !is_numeric($_GET['id'])) {
-    header('location: index.php?status=error');
-    exit;
-}
-
-// Recupera o usuário pelo ID
-$usuario = Usuario::single($_GET['id']);
-
-// Validação do usuário
-if(!$usuario instanceof Usuario){
-   header('location: index.php?status=error');
-   exit; 
-}
-    
-// Atualização do usuário
-if(isset($_POST['usuario'])) {
-    $Usuario = new Usuario;
-    $usuario->setLogin($_POST['usuario']);
-    $usuario->update();
-
-    header('location: index.php?status=success');
-    exit;
-}
-
-require_once __DIR__.'../../../config/config.php';
-include __DIR__.'../../../includes/header.php';
-include __DIR__.'/form.php';
-include __DIR__.'../../../includes/footer.php';
+        </form>
+    </div>
+</main>

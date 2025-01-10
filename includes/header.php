@@ -23,9 +23,10 @@
 
 <body>
     <div class="navbar">
-        <a href="<?php echo base_url; ?>views/Usuario/index.php">Usuários</a>
-        <a href="<?php echo base_url; ?>views/Empresa/index.php">Empresas</a>
-        <a href="<?php echo base_url; ?>views/Funcionario/index.php">Funcionários</a>
+        <a href="<?php echo base_url; ?>usuarios"><i class="fa fa-user"></i> Usuários</a>
+        <a href="<?php echo base_url; ?>empresas"><i class="fa fa-laptop"></i> Empresas</a>
+        <a href="<?php echo base_url; ?>"><i class="fa fa-user-circle"></i> Funcionários</a>
+        <a class="logout" href="<?php echo base_url; ?>logout"><i class="fa fa-sign-out"></i> Sair</a>
     </div>
 
     <div class="container">

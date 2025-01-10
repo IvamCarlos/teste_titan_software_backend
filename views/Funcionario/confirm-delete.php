@@ -1,20 +1,16 @@
 <main>
 
-  <h2 class="mt-3">Excluir Funcionário</h2>
+  <h2>Excluir Funcionário</h2>
 
-  <form method="post">
+  <form method="post" action="<?php echo base_url ?>funcionario-deletar/<?= $funcionario->getIdFuncionario() ?>">
 
-    <div class="form-group">
-      <p>Você deseja realmente excluir o funcionário <strong><?= $funcionario->getNome() ?></strong>?</p>
-    </div>
+    <p>Você deseja realmente excluir o funcionário <strong><?= $funcionario->getNome() ?></strong>?</p>
 
-    <div class="form-group">
-      <a href="index.php">
-        <button type="button" class="btn btn-success">Cancelar</button>
-      </a>
+    <a href="<?php echo base_url ?>">
+      <button class="button" type="button">Cancelar</button>
+    </a>
 
-      <button type="submit" name="delete" class="btn btn-danger">Excluir</button>
-    </div>
+    <button class="button-danger" type="submit" name="delete">Excluir</button>
 
   </form>
 

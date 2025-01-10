@@ -4,10 +4,10 @@
     if(isset($_GET['status'])) {
         switch ($_GET['status']) {
             case 'success':
-                $mensagem = '<div class="alert-success">Ação executada com sucesso!</div>';
+                $mensagem = '<div class="alert-success"><span class="closebtn" onclick="fecharAlerta()">&times</span>Ação executada com sucesso!</div>';
                 break;
             case 'error' : 
-                $mensagem = '<div class="alert-danger">Ação não executada</div>';
+                $mensagem = '<div class="alert-danger"><span class="closebtn" onclick="fecharAlerta()">&times</span>Ação não executada</div>';
         }
     }
 
@@ -15,6 +15,9 @@
     // Verifica se existem funcionários na instância do banco de dados, se tiver ele preenche a tabela com os funcionários
     if(count($funcionarios) > 0){
         foreach($funcionarios as $funcionario) {
+            $editar = base_url.'funcionario-editar/'.$funcionario->getIdFuncionario();
+            $deletar = base_url.'funcionario/confirmar-deletar/'.$funcionario->getIdFuncionario();
+
             $results .= '
             <tr>
                 <td>'.$funcionario->getNome().'</td>
@@ -23,8 +26,8 @@
                 <td>'.$funcionario->getEmail().'</td>
                 <td>'.$funcionario->empresa.'</td>
                 <td>
-                    <a href="edit.php?id='.$funcionario->getIdFuncionario().'"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
-                    <a href="delete.php?id='.$funcionario->getIdFuncionario().'"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                    <a href='.$editar.'><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
+                    <a href='.$deletar.'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                 </td>
             </tr>';
         }
@@ -38,7 +41,7 @@
     <?= $mensagem ?>
 
     <section>
-        <a href="register.php">
+        <a href="<?php echo base_url; ?>form-funcionario">
             <button class="button">Novo Funcionário</button>
         </a>
     </section>
@@ -61,3 +64,10 @@
         </tbody>
     </table>
 </section>
+
+<script>
+    function fecharAlerta() {
+        var data = document.querySelector('.closebtn');
+        data.parentElement.style.display="none";
+    }
+</script>
