@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Models\Usuario;
 use Utils\RenderView;
+use App\Db\Database;
 
 require_once __DIR__.'/../../utils/RenderView.php';
 class UsuarioController 
@@ -41,6 +42,33 @@ class UsuarioController
         
             header('location: '.base_url.'/usuarios?status=success');
             exit;
+        }
+    }
+
+    // Método responsável por chamar a página de login
+    public function login() {
+        $this->load->loadView('Usuario/login', []);
+    }
+
+    // Método responsável por autenticar o usuário
+    public function validaLogin() {
+    
+        $user = $_POST['login'];
+        $password = $_POST['senha'];
+        $login = $_POST['logar'];
+    
+        if (isset($login)) {
+    
+            $user = (new Database('tbl_usuario'))->select(null, "login = '$user' AND senha = '$password'")->fetchObject(Usuario::class);
+    
+            if ($user) {
+                session_start();
+                $_SESSION['id'] = $user->getIdUsuario();
+                $_SESSION['user'] = $user->getLogin();
+                header('location: '.base_url.'?status=success');
+            } else {
+                header('location: '.base_url.'login?status=error');
+            }
         }
     }
 

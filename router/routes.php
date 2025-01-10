@@ -6,6 +6,8 @@
 
 $routes = [
     '/' => 'FuncionarioController@index',
+    '/login' => 'UsuarioController@login',
+    '/login/valida-login' => 'UsuarioController@validaLogin',
     '/logout' => 'UsuarioController@logout',
     "/empresas" => 'EmpresaController@index',
     '/usuarios' => 'UsuarioController@index',

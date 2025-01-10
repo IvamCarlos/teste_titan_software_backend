@@ -32,7 +32,7 @@ $key = uniqid(md5(rand()));
                 <img src="assets/img/user.png" id="icon" alt="User Icon" />
             </div>
 
-            <form method="POST" action="validate_login.php">
+            <form method="POST" action="<?php echo base_url; ?>login/valida-login">
                 <input type="text" id="user" class="fadeIn second" name="login" placeholder="Usuário">
                 <input type="password" id="password" class="fadeIn third" name="senha" placeholder="Senha">
                 <input type="submit" class="fadeIn fourth" value="Login" name="logar">
