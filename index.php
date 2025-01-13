@@ -25,7 +25,15 @@ if(isset($_SESSION['user'])) {
     
     include __DIR__.'/includes/footer.php';
 }else {
+    spl_autoload_register(function($file) {
+        if(file_exists(__DIR__."/utils/$file.php")) {
+            file_exists(__DIR__."/utils/$file.php");
+        } else if(file_exists(__DIR__."/models/$file.php")) {
+            file_exists(__DIR__."/models/$file.php");
+        } 
+    });
+
     $core = new Core();
-    $core->run($routes);
+    $core->usuarioNaoAutenticado();
 }
 

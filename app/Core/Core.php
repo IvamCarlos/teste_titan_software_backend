@@ -5,6 +5,23 @@ namespace App\Core;
 use App\Controller\NaoEncontradoController;
 class Core
 {
+    public function usuarioNaoAutenticado() {
+        $controller = '\App\Controller\UsuarioController';
+        $action = 'login';
+
+        $newController = new $controller();
+        $newController->$action();
+        $this->autenticaUsuario();
+    }
+
+    public function autenticaUsuario() {
+        $controller = '\App\Controller\UsuarioController';
+        $validaLogin = 'validaLogin';
+
+        $newController = new $controller();
+        $newController->$validaLogin();
+    }
+
     public function run($routes) {
         $url = '/';
 
@@ -25,12 +42,6 @@ class Core
                 $routerFound = true;
 
                 // Desestruturar o array, Ex: 'FuncionarioController@index'
-                [$currentController, $action] = explode('@', $value);
-
-                // Desestruturar o array, Ex: 'EmpresaController@index'
-                [$currentController, $action] = explode('@', $value);
-
-                // Desestruturar o array, Ex: 'UsuarioController@index'
                 [$currentController, $action] = explode('@', $value);
 
                 $currentController = "\App\Controller\\$currentController";

@@ -47,17 +47,21 @@ class UsuarioController
 
     // Método responsável por chamar a página de login
     public function login() {
-        $this->load->loadView('Usuario/login', []);
+        $this->load->loadView('Usuario/login', [
+            'login' => '',
+            'senha' => '',
+            'logar' => ''
+        ]);
     }
 
     // Método responsável por autenticar o usuário
     public function validaLogin() {
-    
+
         $user = $_POST['login'];
         $password = $_POST['senha'];
         $login = $_POST['logar'];
     
-        if (isset($login)) {
+        if ($login) {
     
             $user = (new Database('tbl_usuario'))->select(null, "login = '$user' AND senha = '$password'")->fetchObject(Usuario::class);
     
